@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación de llamada mejorada</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <button id="nuevaLlamada" disabled>Nueva Llamada</button>
+
+        <h1>Simulación de Llamada</h1>
+        
+
+        <div class="phone-container">
+            <div id="interlocutor1" class="card">
+                <img src="img/emisor.png" alt="Interlocutor 1">
+                <p>Interlocutor 1 (S)</p>
+                <input type="text" placeholder="Nombre del emisor" name="nombre1" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" 
+                title="Solo se permiten letras y espacios">
+            </div>
+            <div id="central" class="card">
+                <img src="img/central.png" alt="Central Telefónica">
+                <p>Central Telefónica</p>
+            </div>
+            <div id="interlocutor2" class="card">
+                <img src="img/receptor.png" alt="Interlocutor 2">
+                <p>Interlocutor 2 (R)</p>
+                <input type="text" placeholder="Nombre del receptor" name="nombre2"  oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" 
+                title="Solo se permiten letras y espacios">
+            </div>
+        </div>
+
+        <div class="actions">
+            <button id="descolgar">Descolgar</button>
+            <div class="input-container">
+                <label for="phoneNumber">Número de teléfono:</label>
+                <input type="text"  id="phoneNumber"  oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 11)"   placeholder="Ingresa número" disabled />
+            </div>
+            <button id="marcar" disabled>Marcar</button>
+            <button id="finalizar" disabled>Finalizar Llamada</button>
+        </div>
+
+        <div class="status-container">
+            <div id="status">Estado: Esperando</div>
+            <div id="timer" class="timer"></div>
+        </div>
+
+        <div id="conversation" class="conversation" tabindex="0"></div>
+
+    </div>
+
+    <!-- Sonido para el tono de llamada -->
+    <audio id="ringtone" src="descolgar.mp3" preload="auto"></audio>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
